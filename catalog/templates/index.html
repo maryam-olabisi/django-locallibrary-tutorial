@@ -1,32 +1,70 @@
-{% extends "base_generic.html" %}
-
+{% extends "base.html" %}
+{% block title %} HOME {%endblock%}
+{% block heading %} LIBRARY DASHBOARD {% endblock %}
 {% block content %}
-<h1>Local Library Home</h1>
+<div class="row">
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Books</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_books }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-file fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Copies</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{num_instances}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-file fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Copies Available</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{num_instances_available}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-question fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Authors</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{num_authors}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-file fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website">tutorial example</a> on the Mozilla Developer Network.</p>
-<p>The tutorial demonstrates how to create a Django skeleton website and application, define URL mappings, views (including Generic List and Detail Views), models and templates.</p>
-
-
-<h2>UML Models</h2>
-<p>An UML diagram of the site's Django model structure is shown below. </p>
-
-<div>
-{% load static %}
-<img src="{% static "images/local_library_model_uml.png" %}" alt="My image" style="width:555px;height:540px;"/>
-</div>  
-
-
-<h2>Dynamic content</h2>
-
-<p>The library has the following record counts:</p>
-<ul>
-<li><strong>Books:</strong> {{ num_books }}</li>
-<li><strong>Copies:</strong> {{ num_instances }}</li>
-<li><strong>Copies available:</strong> {{ num_instances_available }}</li>
-<li><strong>Authors:</strong> {{ num_authors }}</li>
-</ul>
-
-
-You have visited this page {{ num_visits }} times.
+<p>You have visited this page {{ num_visits }} times.</p>
 
 {% endblock %}

@@ -1,13 +1,17 @@
-{% extends "base_generic.html" %}
-
+{% extends "base.html" %}
+{% block title %} BOOKS {%endblock%}
+{% block heading %} ADD BOOK DETAILS {% endblock %}
 {% block content %}
-
-<form action="" method="post">
-    {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit" />
-    
-</form>
+<div class="row">
+    <div class="offset-md-1 col-md-8">
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <br>
+            <input type="submit" value="Submit" class="btn btn-primary offset-md-1 col-md-4" />
+        </form>
+    </div>
+</div>
 {% endblock %}
